@@ -4,7 +4,7 @@
 
 ## 📁 目录结构
 
-```
+``` text
 python/env/
 ├── Pipfile                # Pipenv 项目文件
 ├── Pipfile.lock           # Pipenv 锁定文件（精确版本）
@@ -86,6 +86,7 @@ pip install -r requirements.txt
 ### 3. 在 Godot 中配置
 
 在 Godot 插件设置中设置 Python 路径：
+
 - **Windows**: `[插件目录]/python/env/venv/Scripts/python.exe`
 - **Linux/macOS**: `[插件目录]/python/env/venv/bin/python`
 
@@ -136,6 +137,7 @@ pip install -r requirements.txt
 ## 🛠 故障排除
 
 ### Python 命令未找到
+
 ```bash
 # 检查 Python 是否已安装
 python --version
@@ -145,12 +147,14 @@ python3 --version
 ```
 
 ### 权限拒绝（Windows）
+
 ```powershell
 # 允许执行 PowerShell 脚本
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ### 包安装失败
+
 ```bash
 # 更新 pip
 python -m pip install --upgrade pip
