@@ -1,0 +1,21 @@
+# Python 虚拟环境
+venv/
+env/
+.env
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pip 缓存
+.cache/
+
+# Pipenv
+.venv
+
+# pytest
+.pytest_cache/
+
+# 用户特定配置
+config_local.ini

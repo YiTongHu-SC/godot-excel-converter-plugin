@@ -28,14 +28,19 @@ logger = logging.getLogger(__name__)
 class GDScriptGenerator:
     """GDScript生成器类"""
     
-    def __init__(self, config_path: str = "config.ini"):
+    def __init__(self, config_path: Optional[str] = None):
         """
         初始化生成器
         
         Args:
-            config_path (str): 配置文件路径
+            config_path (str): 配置文件路径，如果为None则自动查找
         """
         self.config = configparser.ConfigParser()
+        
+        # 自动查找配置文件
+        if config_path is None:
+            config_path = self._find_config_file()
+        
         self.config_path = Path(config_path)
         
         # 默认配置
@@ -50,6 +55,27 @@ class GDScriptGenerator:
         }
         
         self.load_config()
+    
+    def _find_config_file(self) -> str:
+        """
+        自动查找配置文件
+        
+        Returns:
+            str: 配置文件路径
+        """
+        current_dir = Path(__file__).parent
+        possible_paths = [
+            current_dir / "config.ini",  # 当前目录
+            current_dir.parent / "config" / "config.ini",  # 上级目录的config文件夹
+            current_dir.parent.parent / "config.ini",  # 上两级目录
+        ]
+        
+        for path in possible_paths:
+            if path.exists():
+                return str(path)
+        
+        # 如果都没找到，返回默认路径
+        return str(current_dir.parent / "config" / "config.ini")
     
     def load_config(self):
         """加载配置文件"""
@@ -586,8 +612,8 @@ def main():
     parser.add_argument('--file', '-f',
                        help='生成单个JSON文件的脚本（指定文件路径）')
     parser.add_argument('--config', '-c',
-                       default='config.ini',
-                       help='配置文件路径 (默认: config.ini)')
+                       default=None,
+                       help='配置文件路径 (默认: 自动查找)')
     
     args = parser.parse_args()
     

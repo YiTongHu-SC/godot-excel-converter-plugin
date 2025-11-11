@@ -38,12 +38,25 @@ git clone https://github.com/YiTongHu-SC/godot-excel-converter-plugin.git py_exc
 
 ## ⚡ 快速开始
 
-1. **安装 Python 环境**：
+1. **设置 Python 环境**：
+
+   **自动设置 (推荐)**：
 
    ```bash
-   pip install pipenv
-   cd addons/py_excel_tool/src
-   pipenv install
+   # Windows
+   cd addons/py_excel_tool/python/env
+   .\setup_env.ps1
+   
+   # Linux/macOS  
+   cd addons/py_excel_tool/python/env
+   chmod +x setup_env.sh && ./setup_env.sh
+   ```
+
+   **手动设置**：
+
+   ```bash
+   cd addons/py_excel_tool/python/env
+   pip install -r requirements.txt
    ```
 
 2. **启用插件**：
@@ -53,11 +66,13 @@ git clone https://github.com/YiTongHu-SC/godot-excel-converter-plugin.git py_exc
 
 3. **配置设置**：
    - 使用工具菜单 → **"Excel转换器设置"**
-   - 设置 Python 路径（留空自动检测）
+   - 设置 Python 路径：
+     - Windows: `addons/py_excel_tool/python/env/venv/Scripts/python.exe`
+     - Linux/macOS: `addons/py_excel_tool/python/env/venv/bin/python`
    - 配置输入输出目录
 
 4. **转换文件**：
-   - 将 Excel 文件放入输入目录
+   - 将 Excel 文件放入 `addons/py_excel_tool/python/data/` 目录
    - 使用工具菜单 → **"转换Excel并生成GDScript"**
 
 ## 📊 数据格式示例
@@ -113,7 +128,7 @@ func get_all() -> Array[MonsterData]:
 
 ## 🔧 配置文件
 
-Python 配置文件 `src/config.ini`：
+Python 配置文件 `python/config/config.ini`：
 
 ```ini
 [DEFAULT]
