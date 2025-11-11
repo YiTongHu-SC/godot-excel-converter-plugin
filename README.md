@@ -39,6 +39,7 @@ git clone https://github.com/YiTongHu-SC/godot-excel-converter-plugin.git py_exc
 ## ⚡ 快速开始
 
 1. **安装 Python 环境**：
+
    ```bash
    pip install pipenv
    cd addons/py_excel_tool/src
@@ -62,12 +63,14 @@ git clone https://github.com/YiTongHu-SC/godot-excel-converter-plugin.git py_exc
 ## 📊 数据格式示例
 
 **Excel 输入**：
+
 | ID | Name | Level | HP | Attack |
 |----|------|-------|----|----|
 | 1  | Slime | 1    | 10 | 5  |
 | 2  | Goblin| 2    | 25 | 8  |
 
 **生成的 GDScript 数据类**：
+
 ```gdscript
 class_name MonsterData
 
@@ -82,6 +85,7 @@ func _init(data: Dictionary = {}):
 ```
 
 **生成的加载器类**：
+
 ```gdscript
 class_name MonsterLoader
 
@@ -95,12 +99,14 @@ func get_all() -> Array[MonsterData]:
 ## 🛠 使用方式
 
 ### 工具菜单
+
 - **转换Excel文件为JSON** - 执行批量转换
 - **转换Excel并生成GDScript** - 转换并生成代码
 - **Excel转换器设置** - 配置选项
 - **打开Excel转换器面板** - 显示停靠面板
 
 ### 停靠面板
+
 - 可视化界面操作
 - 实时日志显示
 - 进度状态提示

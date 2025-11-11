@@ -21,13 +21,13 @@ func _init():
 	name = "Excel转换器"
 	custom_minimum_size = Vector2(300, 400)
 	# 获取插件根目录
-	plugin_path = get_script().resource_path.get_base_dir()
+	plugin_path = get_script().resource_path.get_base_dir().get_base_dir().get_base_dir()
 	# 延迟加载转换器
 	call_deferred("_setup_converter")
 
 func _setup_converter():
 	if is_inside_tree():
-		var ExcelConverterCore = load(plugin_path + "/excel_converter_core.gd")
+		var ExcelConverterCore = load(plugin_path + "/scripts/core/excel_converter_core.gd")
 		converter = ExcelConverterCore.new()
 		converter.set_plugin_path(plugin_path)
 

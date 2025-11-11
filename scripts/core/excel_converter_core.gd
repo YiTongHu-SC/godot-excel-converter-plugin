@@ -132,7 +132,7 @@ func test_python_path(path: String) -> bool:
 func get_script_path() -> String:
 	"""获取Python脚本路径"""
 	if plugin_path != "":
-		return ProjectSettings.globalize_path(plugin_path + "/src/excel_to_json.py")
+		return ProjectSettings.globalize_path(plugin_path + "/python/core/excel_to_json.py")
 	var base_path = ProjectSettings.globalize_path("res://addons/py_excel_tool/src/")
 	return base_path + "excel_to_json.py"
 
@@ -169,7 +169,7 @@ func get_base_resource_path() -> String:
 
 func update_python_config():
 	"""更新Python配置文件中的base_resource_path"""
-	var config_path_res = plugin_path + "/src/config.ini" if plugin_path != "" else "res://addons/py_excel_tool/src/config.ini"
+	var config_path_res = plugin_path + "/python/config/config.ini" if plugin_path != "" else "res://addons/py_excel_tool/python/config/config.ini"
 	var config_path = ProjectSettings.globalize_path(config_path_res)
 	var base_path = get_base_resource_path()
 	

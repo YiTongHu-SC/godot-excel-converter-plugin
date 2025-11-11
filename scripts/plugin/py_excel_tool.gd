@@ -6,7 +6,7 @@ var plugin_path: String
 
 func _enter_tree():
 	# 获取插件根目录
-	plugin_path = get_script().resource_path.get_base_dir()
+	plugin_path = get_script().resource_path.get_base_dir().get_base_dir().get_base_dir()
 	
 	# 执行python_path迁移 (从项目设置迁移到用户配置)
 	_migrate_python_path()
@@ -21,7 +21,7 @@ func _enter_tree():
 	# add_tool_menu_item("打开Excel转换器面板", _on_open_dock)
 	
 	# 创建停靠面板
-	var DockScript = load(plugin_path + "/excel_converter_dock.gd")
+	var DockScript = load(plugin_path + "/scripts/ui/excel_converter_dock.gd")
 	dock_instance = DockScript.new()
 	add_control_to_dock(DOCK_SLOT_LEFT_BR, dock_instance)
 	
@@ -59,14 +59,14 @@ func _on_convert_excel_with_gdscript():
 
 func _on_open_settings():
 	"""打开设置对话框"""
-	var settings_dialog = load(plugin_path + "/settings_dialog_new.tscn").instantiate()
+	var settings_dialog = load(plugin_path + "/scenes/settings_dialog_new.tscn").instantiate()
 	EditorInterface.get_base_control().add_child(settings_dialog)
 	settings_dialog.popup_centered(Vector2i(550, 500))
 
 func _setup_project_settings():
 	"""初始化项目设置"""
 	# 基础设置 (python_path不再存储在项目设置中，改为用户本地配置)
-	var default_input = plugin_path + "/data/"
+	var default_input = plugin_path + "/python/data/"
 	_add_project_setting("excel_converter/input_path", default_input, TYPE_STRING, "默认Excel文件输入目录")
 	_add_project_setting("excel_converter/output_path", "res://data/generated/", TYPE_STRING, "默认JSON文件输出目录")
 	

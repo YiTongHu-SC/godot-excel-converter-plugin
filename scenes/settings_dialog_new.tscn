@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bivwc8khm8isk"]
 
-[ext_resource type="Script" path="res://addons/py_excel_tool/settings_dialog.gd" id="1_0h8mf"]
+[ext_resource type="Script" path="res://addons/py_excel_tool/scripts/ui/settings_dialog.gd" id="1_0h8mf"]
 
 [node name="SettingsDialog" type="AcceptDialog"]
 title = "Excel转换器设置"

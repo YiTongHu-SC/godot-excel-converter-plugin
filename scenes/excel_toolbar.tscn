@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8p8dbnk6h1yb"]
 
-[ext_resource type="Script" path="res://addons/py_excel_tool/excel_toolbar.gd" id="1_vhytu"]
+[ext_resource type="Script" path="res://addons/py_excel_tool/scripts/ui/excel_toolbar.gd" id="1_vhytu"]
 
 [node name="ExcelToolbar" type="HBoxContainer"]
 script = ExtResource("1_vhytu")

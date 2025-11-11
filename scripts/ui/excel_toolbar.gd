@@ -16,9 +16,9 @@ var plugin_path: String
 func _ready():
 	if Engine.is_editor_hint():
 		# 获取当前脚本所在目录作为插件根目录
-		plugin_path = get_script().resource_path.get_base_dir()
+		plugin_path = get_script().resource_path.get_base_dir().get_base_dir().get_base_dir()
 		
-		var ExcelConverterCore = load(plugin_path + "/excel_converter_core.gd")
+		var ExcelConverterCore = load(plugin_path + "/scripts/core/excel_converter_core.gd")
 		converter = ExcelConverterCore.new()
 		_connect_signals()
 
