@@ -1,6 +1,9 @@
 @tool
 extends EditorPlugin
 
+# Import the ExcelConverterCore class
+const ExcelConverterCore = preload("res://addons/py_excel_tool/scripts/core/excel_converter_core.gd")
+
 var dock_instance
 var plugin_path: String
 
