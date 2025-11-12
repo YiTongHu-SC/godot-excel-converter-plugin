@@ -128,7 +128,7 @@ func _on_test_python():
 		var version_info = ""
 		if output.size() > 0:
 			version_info = output[0]
-		status_label.text = "Python测试成功: " + version_info
+		status_label.text = version_info + " python_path:" + python_path
 		status_label.modulate = Color.GREEN
 	else:
 		status_label.text = "Python测试失败，请检查路径"
