@@ -23,11 +23,6 @@ func _enter_tree():
 	add_tool_menu_item("Excel转换器设置", _on_open_settings)
 	# add_tool_menu_item("打开Excel转换器面板", _on_open_dock)
 	
-	# 创建停靠面板
-	var DockScript = load(plugin_path + "/scripts/ui/excel_converter_dock.gd")
-	dock_instance = DockScript.new()
-	add_control_to_dock(DOCK_SLOT_LEFT_BR, dock_instance)
-	
 	print("[Excel转换器] 插件已加载")
 
 func _exit_tree():
